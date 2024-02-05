@@ -21,8 +21,8 @@ export class BookService {
 
 
     async createBook(data: Book):Promise<Book>{
-        if (!data.title || !data.description) {
-            throw new BadRequestException('Title and description are required fields');
+        if (!data.title) {
+            throw new BadRequestException('Title is required');
           }
         
         return this.prisma.book.create({
